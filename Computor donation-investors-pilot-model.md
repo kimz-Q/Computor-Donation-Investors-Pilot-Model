@@ -118,4 +118,4 @@ This proposal reallocates part of the burn tranche for a fixed, self-expiring pe
 
 ---
 
-*Submitted by business development lead : Kimz · Full detail: Qubic_SAP_Computor_Deck	 (attached)*
+*Submitted by business development lead: Kimz · Full detail: [Qubic_SAP_Computor_Deck (PDF)](Qubic_SAP_Computor_Deck_public.pdf)*
