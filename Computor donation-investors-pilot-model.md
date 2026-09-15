@@ -32,13 +32,12 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 - **A treasury sale is the worst option.** It adds supply, drains the CCF, and signals that the protocol is selling to survive — on ~$0.73M/day of volume, everyone would see it.
 - **This model turns raises into demand.** Every ticket becomes ~$500k of verified open-market buying before Qubic issues anything back.
 
-Full quantitative analysis: see the attached briefing deck (*Qubic_SAP_Computor_Deck_v5*).
 
 ---
 
 ## How the model works
 
-![Model flow](images/investors-pilot-flow.png)
+![Model flow](investors-pilot-flow.png)
 
 1. **Contract** — an approved investor signs the full package: attestation requirement, no-hedging covenant, mandatory ecosystem commitments (C1). *No contract → no ratio.*
 2. **Buy** — ~$500k per ticket executed by the Qubic market maker through the investor's own account, inside a defined window. *No attestation → no ratio: burning an old bag earns nothing.*
@@ -60,13 +59,13 @@ Full quantitative analysis: see the attached briefing deck (*Qubic_SAP_Computor_
 - Supply cap, miner rewards, QEarn and CCF are not part of this vote.
 - Precedent: this is the same decision class as the QEarn emission reallocation (Nov 2024) and the SupplyWatcher halving adjustments (Epochs 175 / 227).
 
-![Emission during the pilot](images/investors-pilot-emission.png)
+![Emission during the pilot](investors-pilot-emission.png)
 
 ---
 
 ## The release mechanism
 
-![Release schedule](images/investors-pilot-release.png)
+![Release schedule](investors-pilot-release.png)
 
 - **Nothing is unlocked up front.** The full 1.25× accrues to the programme multisig.
 - **Cliff:** first release 4 epochs after burn + attestation.
@@ -86,7 +85,7 @@ Full quantitative analysis: see the attached briefing deck (*Qubic_SAP_Computor_
 | Issued back over 12 months | 3.18T | 2.24% |
 | **Net new supply (total cost)** | **0.64T** | **0.45%** |
 
-![Float impact](images/investors-pilot-float.png)
+![Float impact](investors-pilot-float.png)
 
 Burning is front-loaded (float drops ~2.3T inside two months); releases are back-loaded (float does not return to today's level until ~month 11). A treasury sale of the same scale would add 3.18T from day one with nothing burned.
 
