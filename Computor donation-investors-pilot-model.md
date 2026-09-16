@@ -13,7 +13,7 @@ Because donations are a **percentage of what Computors actually earn**, all toke
 
 > **Option 0:** No, I don't want
 
-> **Option 1:** Yes, redirect 24.5% of Computor earnings from the burn donation to the programme multisig for a 14-epoch window
+> **Option 1:** Yes, redirect 24.5% of Computor earnings from the burn donation to the programme multisig for a 15-epoch window
 
 ---
 
@@ -49,7 +49,7 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 ## What this vote changes — and what it does not
 
-| Weekly emission: 1,000B nominal | Share today | During the pilot window (14 epochs) |
+| Weekly emission: 1,000B nominal | Share today | During the pilot window (15 epochs) |
 |---|---|---|
 | **Burned (SupplyWatcher)** | 77.5% (max 775B) | **53.0% still burned + 24.5% to the programme multisig (max 245B)** |
 | Miners | 181.6B (18.2%) | **Untouched** |
