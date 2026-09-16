@@ -148,4 +148,4 @@ This proposal redirects part of the burn donation for a fixed window closed by a
 
 ---
 
-*Submitted by BD lead-Kimz — BD lead,  Full detail: [here](Qubic_Inv_Computor_Deck_Final)
+*Submitted by BD lead-Kimz — BD lead,  Full detail: [here](Qubic_Inv_Computor_Deck_Final.pdf)
