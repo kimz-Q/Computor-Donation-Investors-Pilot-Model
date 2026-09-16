@@ -2,7 +2,8 @@
 
 ## Proposal
 
-Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **14 epochs**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive 1.25× the burned amount released in small batches over 12 months**.
+Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **15 epochs (14 nominal + 1 buffer)**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive 1.25× the burned amount released in small batches over 12 months**.
+Because donations are a **percentage of what Computors actually earn**, all token figures in this document are **ceilings** — actual accrual is normally lower. The window is closed by a **paired restore proposal (Proposal B), published simultaneously with this one**, which returns the burn donation to 77.5%. Nothing else in the emission split changes.
 
 
 ---
@@ -55,9 +56,21 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 | QEarn | 25.4B (2.5%) | **Untouched** |
 | CCF (treasury) | 18.0B (1.8%) | **Untouched** |
 
-- The draw is **32% of the burn donation at most**. Nominal need: 3.18T ≈ 13 epochs at full earnings; the window runs **14 epochs as a buffer** because actual earnings vary. The window is closed by the paired restore proposal, not by code — **no core code changes are required anywhere in this model**.
+- The draw is **32% of the burn donation at most**. The window runs **15 epochs (14 nominal + 1 buffer)** — sized to the programme's **maximum possible obligation including bonuses (3.44T)**, not its base case, with actual-earnings variance absorbed by the buffer. The window is closed by the paired restore proposal, not by code — **no core code changes are required anywhere in this model**.
 - Supply cap, miner rewards, QEarn and CCF are not part of this vote.
-- **Accrual rule:** tickets are contracted only against tokens actually accrued in the multisig; **any surplus above contracted obligations is publicly burned at window close**.
+
+### Funding coverage — the window covers every scenario
+
+| Scenario (2 tickets) | Multiplier | Tokens owed | Covered by the 3.675T ceiling |
+|---|---|---|---|
+| No investor signs | — | 0 | Everything accrued is burned |
+| Base only | 1.25× | 3.18T | Yes — 0.49T spare → burned |
+| Both tickets earn C2 | 1.30× | 3.31T | Yes — 0.37T spare → burned |
+| One C2, one C3 | 1.30× / 1.35× | 3.37T | Yes — 0.30T spare → burned |
+| Both tickets earn C3 (maximum) | 1.35× | 3.44T | Yes — 0.24T spare (~7% variance margin) → burned |
+
+Per ticket: burn ~1.272T (~$500k at ref price); base repayment 1.591T in 13 batches of ~122.4B; **C2 bonus (+5%) = 63.6B; C3 bonus (+10%) = 127.2B**. Bonuses are additive to the multiplier (1.25× → 1.30× or 1.35×) and **do not stack** — a ticket earns C2 or C3, never both. A bonus is released as **one additional batch** at the next scheduled release point after delivery is verified, under the same accrual rule and compliance check as every base batch; **verification no later than the final base batch (batch 13)**. Nothing is released early, and nothing is released that has not accrued.
+- **Burn-back rule — anything not earned goes to the burn address.** Tokens accrued to the programme multisig are used only to serve signed ticket schedules and verified bonuses; everything else is burned publicly, with transaction hashes published: **if no investor signs**, 100% of accrued tokens are burned at window close (net cost to the network: zero); **at window close (end of epoch 15)**, everything beyond the remaining scheduled base batches plus a reserve for still-eligible bonuses is burned; **at programme close (after batch 13)**, any bonus reserve not earned or not verified in time is burned — nothing is redistributed, rolled over or retained; **on covenant breach**, all unreleased batches for that ticket, base and bonus, are forfeited and burned. The programme multisig holds nothing after programme close.
 - Precedent: this is the same decision class as the QEarn emission reallocation (Nov 2024) and the SupplyWatcher halving adjustments (Epochs 175 / 227).
 
 ![Emission during the pilot](investors-pilot-emission.png)
@@ -99,8 +112,9 @@ The burn is front-loaded, so for the first ~2 months supply moves *away* from th
 |---|---|---|
 | Tickets (max 2 per investor) | 2 | — |
 | Bought on market & burned | 2.55T | 1.79% |
-| Issued back over 12 months | 3.18T | 2.24% |
-| **Net new supply (total cost)** | **0.64T** | **0.45%** |
+| Issued back over 12 months (base) | 3.18T | 2.24% |
+| Issued back, absolute max (all C3 bonuses) | 3.44T | 2.42% |
+| **Net new supply — base / max** | **0.64T / 0.89T** | **0.45% / 0.63%** |
 
 ![Float impact](investors-pilot-float.png)
 
@@ -118,15 +132,13 @@ Burning is front-loaded (float drops ~2.3T inside two months); releases are back
 6. **Published before launch** — full terms and all addresses public (this document) before any investor is approached.
 
 ---
-
 ## Sequencing and considerations
 
 - **No investor is approached, promised or signed until this vote passes.** The quorum's decision comes first.
 - **Signed contracts are honored — by everyone, including the quorum.** During the 13 epochs the tranche accrues to the programme multisig; once an investor has bought, burned and been attested under an approved tranche, their release schedule is served from tokens already accrued and is **not subject to retroactive change**. Governance keeps full authority over the *future* — any adjustment or termination proposal applies only to tickets not yet signed. This ring-fencing is what makes the model bankable to a serious counterparty: Qubic's word, once given on-chain, holds.
 - **No core code changes are required.** The redirect and restore are standard donation-split votes (the mechanism already running QEarn and the burn); releases are ordinary multisig transfers on a published schedule; verification is off-chain tooling. The programme team publishes a per-epoch accrual dashboard so actuals vs the ceiling are checkable all window long.
 - The pilot is judged on four public tests (quorum approval; a real investor signing the full undiluted package; one complete buy→burn→attest→release cycle on schedule; delivered marketing/partnership commitments). **Fail any one and the full programme does not proceed.**
-- If no investor signs, the restore proposal closes the window and **everything accrued is burned — no tokens are issued and the network has lost nothing**. Administrative and legal setup costs are outside the scope of this vote and will be requested separately if and when they arise (unforeseen costs excluded here).
-- Another Proposal to be submitted at the same time to restore the burning rate to 77.5% without any code complication. 
+- If no investor signs, the restore proposal closes the window at epoch 15 and **everything accrued is burned — no tokens are issued and the network has lost nothing**. Administrative and legal setup costs are outside the scope of this vote and will be requested separately if and when they arise (unforeseen costs excluded here).
 
 ---
 
@@ -136,4 +148,4 @@ This proposal redirects part of the burn donation for a fixed window closed by a
 
 ---
 
-*Submitted by BD lead-Kimz — BD lead,  Full detail: ![here](Qubic_investors_Computor_Deck)
+*Submitted by BD lead-Kimz — BD lead,  Full detail: [here](Qubic_investors_Computor_Deck)
