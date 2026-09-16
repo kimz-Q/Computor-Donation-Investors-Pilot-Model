@@ -66,7 +66,7 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 ## The release mechanism
 
-![Release schedule](images/investors-pilot-release.png)
+![Release schedule](investors-pilot-release.png)
 
 - **Nothing is unlocked up front.** The full 1.25× accrues to the programme multisig.
 - **Cliff:** first release 4 epochs after burn + attestation.
@@ -136,4 +136,4 @@ This proposal redirects part of the burn donation for a fixed window closed by a
 
 ---
 
-*Submitted by BD lead-Kimz — BD lead,  Full detail: Qubic_SAP_Computor_Deck_v5 (attached)*
+*Submitted by BD lead-Kimz — BD lead,  Full detail: ![here](Qubic_investors_Computor_Deck)
