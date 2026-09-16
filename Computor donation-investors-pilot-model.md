@@ -2,17 +2,17 @@
 
 ## Proposal
 
-Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **13 epochs**, redirect **245B QUBIC per epoch** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive 1.25× the burned amount released in small batches over 12 months**.
+Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **14 epochs**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive 1.25× the burned amount released in small batches over 12 months**.
 
-The tranche **expires automatically after 13 epochs**. Nothing else in the emission split changes.
 
 ---
 
 ## 🗳️ Voting Options
 
+
 > **Option 0:** No, I don't want
 
-> **Option 1:** Yes, redirect 245B/epoch from the burn tranche for 13 epochs to fund the Investors Pilot Model
+> **Option 1:** Yes, redirect 24.5% of Computor earnings from the burn donation to the programme multisig for a 14-epoch window
 
 ---
 
@@ -48,15 +48,16 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 ## What this vote changes — and what it does not
 
-| Weekly emission: 1,000B | Share today | During the 13 pilot epochs |
+| Weekly emission: 1,000B nominal | Share today | During the pilot window (14 epochs) |
 |---|---|---|
-| **Burned (SupplyWatcher)** | 775B (77.5%) | **530B still burned + 245B to the programme multisig** |
+| **Burned (SupplyWatcher)** | 77.5% (max 775B) | **53.0% still burned + 24.5% to the programme multisig (max 245B)** |
 | Miners | 181.6B (18.2%) | **Untouched** |
 | QEarn | 25.4B (2.5%) | **Untouched** |
 | CCF (treasury) | 18.0B (1.8%) | **Untouched** |
 
-- The draw is **32% of the burn tranche for one quarter** (13 × 245B = 3.181T), then the tranche **expires automatically in code**.
+- The draw is **32% of the burn donation at most**. Nominal need: 3.18T ≈ 13 epochs at full earnings; the window runs **14 epochs as a buffer** because actual earnings vary. The window is closed by the paired restore proposal, not by code — **no core code changes are required anywhere in this model**.
 - Supply cap, miner rewards, QEarn and CCF are not part of this vote.
+- **Accrual rule:** tickets are contracted only against tokens actually accrued in the multisig; **any surplus above contracted obligations is publicly burned at window close**.
 - Precedent: this is the same decision class as the QEarn emission reallocation (Nov 2024) and the SupplyWatcher halving adjustments (Epochs 175 / 227).
 
 ![Emission during the pilot](investors-pilot-emission.png)
@@ -65,14 +66,30 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 ## The release mechanism
 
-![Release schedule](investors-pilot-release.png)
+![Release schedule](images/investors-pilot-release.png)
 
 - **Nothing is unlocked up front.** The full 1.25× accrues to the programme multisig.
 - **Cliff:** first release 4 epochs after burn + attestation.
 - **Then 13 equal batches**, one every 4 epochs — **~122.4B tokens each, ≈0.09% of circulating supply per batch**. The schedule is fixed in tokens, not dollars: at the reference price a batch is worth ~$48k; if the price rises, the dollar value rises with it — but each batch stays the same sliver of supply, and rising prices historically come with deeper traded volume. Either way, there is never a block to sell.
-- **Custody and control:** the programme multisig is operated under a **3-of-5 signatory structure, finalised and published in full before launch**, with the one investor-representative signatory for transparency. All addresses are published in this document before launch; every release is verifiable on-chain against the schedule.
+- **Custody and control:** the programme multisig is operated under a **3-of-5 signatory structure, finalised and published in full before launch**, with the option of one investor-representative signatory for transparency. All addresses are published in this document before launch; every release is verifiable on-chain against the schedule.
 - **Every batch is conditional:** the no-hedging covenant and the C1 ecosystem commitments are checked before each release — thirteen times, not once at signing.
-- **Breach forfeits every unreleased extra tokens batch.** Forfeited tokens to be sent to burning address, so a breach leaves the supply tighter than if the investor had complied.
+- **Breach forfeits every unreleased batch.** Forfeited tokens are never minted, so a breach leaves the supply tighter than if the investor had complied.
+
+---
+
+## Impact on the 200T supply cap
+
+The cap itself is untouched — this vote changes only the pace of approach. Remaining headroom today is **57.79T** (200T − 142.21T outstanding).
+
+| At full pilot uptake | Value |
+|---|---|
+| Net new supply (maximum) | **0.64T** |
+| Share of remaining headroom | **1.10%** |
+| Runway consumed (at 225B/epoch effective emission) | **~2.8 epochs (~3 weeks of a ~5-year path)** |
+| If no investor signs | **0** |
+| If an investor breaches | **below 0.64T** (forfeited batches are never minted) |
+
+The burn is front-loaded, so for the first ~2 months supply moves *away* from the cap before releases catch up. Under Supply Watcher equilibrium (~196.8T by ~Epoch 591) the 200T cap is not expected to be reached at all; a one-off 0.64T is absorbed by the dynamic burn adjustment.
 
 ---
 
@@ -106,16 +123,17 @@ Burning is front-loaded (float drops ~2.3T inside two months); releases are back
 
 - **No investor is approached, promised or signed until this vote passes.** The quorum's decision comes first.
 - **Signed contracts are honored — by everyone, including the quorum.** During the 13 epochs the tranche accrues to the programme multisig; once an investor has bought, burned and been attested under an approved tranche, their release schedule is served from tokens already accrued and is **not subject to retroactive change**. Governance keeps full authority over the *future* — any adjustment or termination proposal applies only to tickets not yet signed. This ring-fencing is what makes the model bankable to a serious counterparty: Qubic's word, once given on-chain, holds.
-- The programme team sponsors this proposal; engineering scopes the tranche change and batch-release routine before implementation, so the quorum never votes blind.
+- **No core code changes are required.** The redirect and restore are standard donation-split votes (the mechanism already running QEarn and the burn); releases are ordinary multisig transfers on a published schedule; verification is off-chain tooling. The programme team publishes a per-epoch accrual dashboard so actuals vs the ceiling are checkable all window long.
 - The pilot is judged on four public tests (quorum approval; a real investor signing the full undiluted package; one complete buy→burn→attest→release cycle on schedule; delivered marketing/partnership commitments). **Fail any one and the full programme does not proceed.**
-- If no investor signs, the tranche simply expires — **no tokens are issued and the network has lost nothing**. Administrative and legal setup costs are outside the scope of this vote and will be requested separately if and when they arise (unforeseen costs excluded here).
+- If no investor signs, the restore proposal closes the window and **everything accrued is burned — no tokens are issued and the network has lost nothing**. Administrative and legal setup costs are outside the scope of this vote and will be requested separately if and when they arise (unforeseen costs excluded here).
+- Another Proposal to be submitted at the same time to restore the burning rate to 77.5% without any code complication. 
 
 ---
 
 ## Disclaimer
 
-This proposal reallocates part of the burn tranche for a fixed, self-expiring period. It creates 0.64T of net new supply at full pilot uptake and 0 if no investor signs. It is not an offer to any investor, makes no representation about future price, and nothing is owed to any party unless the quorum approves this vote and a contract is subsequently signed — after which signed obligations are honored in full as described above. All figures use market data verified 15 Sep 2026 (price $0.000000393, mcap $55.9M, circulating 142.21T) as a reference only; the deal itself is denominated in tokens and does not depend on price.
+This proposal redirects part of the burn donation for a fixed window closed by a paired restore vote. It creates 0.64T of net new supply at full pilot uptake and 0 if no investor signs. It is not an offer to any investor, makes no representation about future price, and nothing is owed to any party unless the quorum approves this vote and a contract is subsequently signed — after which signed obligations are honored in full as described above. All figures use market data verified 15 Sep 2026 (price $0.000000393, mcap $55.9M, circulating 142.21T) as a reference only; the deal itself is denominated in tokens and does not depend on price.
 
 ---
 
-*Submitted by business development lead: Kimz · Full detail: [Qubic_SAP_Computor_Deck (PDF)](Qubic_SAP_Computor_Deck_public.pdf)*
+*Submitted by BD lead-Kimz — BD lead,  Full detail: Qubic_SAP_Computor_Deck_v5 (attached)*
