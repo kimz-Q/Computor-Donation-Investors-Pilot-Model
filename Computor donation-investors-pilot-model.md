@@ -2,8 +2,10 @@
 
 ## Proposal
 
-Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **15 epochs (14 nominal + 1 buffer)**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive 1.25× the burned amount released in small batches over 12 months**.
+Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **15 epochs (14 nominal + 1 buffer)**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive a tiered multiple of the burned amount released in small batches over 6–12 months**.
 Because donations are a **percentage of what Computors actually earn**, all token figures in this document are **ceilings** — actual accrual is normally lower. The window is closed by a **paired restore proposal (Proposal B), published simultaneously with this one**, which returns the burn donation to 77.5%. Nothing else in the emission split changes.
+
+*Full mechanics, charts and scenario tables: [briefing deck (PDF)](Qubic_Inv_Computor_Deck_v7_public.pdf).*
 
 
 ---
@@ -19,11 +21,11 @@ Because donations are a **percentage of what Computors actually earn**, all toke
 
 ## Summary
 
-Qubic needs outside capital, and every conventional route ends the same way: the protocol sells tokens into a thin order book, and the market watches it happen. This proposal funds the opposite motion. The investor's money **buys QUBIC on the open market** (executed by our market maker through the investor's own account — their funds never touch Qubic), the bought tokens are **burned at the burn address**, and the investor is repaid **1.25 tokens per token burned** from emission that would have been burned anyway — released in 13 small batches over twelve months, each batch conditional on the investor's continued compliance.
+Qubic needs outside capital, and every conventional route ends the same way: the protocol sells tokens into a thin order book, and the market watches it happen. This proposal funds the opposite motion. The investor's money **buys QUBIC on the open market** (executed by our market maker through the investor's own account — their funds never touch Qubic), the bought tokens are **burned at the burn address**, and the investor is repaid **a tiered multiple of what they burned** from emission that would have been burned anyway — released in small batches, each one conditional on the investor's continued compliance.
 
-Qubic sells nothing, holds no investor money, and pays only for **verified buying**. The entire cost of the pilot is **0.64T net new supply (0.45% of circulating)** — published, capped, and voted here before any investor is approached.
+Qubic sells nothing, holds no investor money, and pays only for **verified buying**. The pilot is capped at **$1M of committed capital**, and its entire cost at the worst possible composition is **0.64T net new supply (0.45% of circulating)** — published, capped, and voted here before any investor is approached.
 
-**Every ticket hits the price from both sides at once.** The investor's ~$500k is real buy pressure on the open market (demand up), and the bought tokens are then immediately and verifiably burned (supply down) — a double effect delivered up front, while the 1.25× repayment is deferred, dripped, and conditional. No other funding route gives the network demand and a burn from the same dollar.
+**Every ticket hits the price from both sides at once.** The investor's capital is real buy pressure on the open market (demand up), and the bought tokens are then immediately and verifiably burned (supply down) — a double effect delivered up front, while repayment is deferred, dripped, and conditional. No other funding route gives the network demand and a burn from the same dollar.
 
 ---
 
@@ -31,7 +33,7 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 - **~6 months of CCF runway.** Treasury inflow fell 65% at the Epoch 227 halving; approved spend now exceeds quarterly inflow.
 - **A treasury sale is the worst option.** It adds supply, drains the CCF, and signals that the protocol is selling to survive — on ~$0.73M/day of volume, everyone would see it.
-- **This model turns raises into demand.** Every ticket becomes ~$500k of verified open-market buying before Qubic issues anything back.
+- **This model turns raises into demand.** Every ticket becomes verified open-market buying before Qubic issues anything back.
 
 
 ---
@@ -41,11 +43,27 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 ![Model flow](investors-pilot-flow.png)
 
 1. **Contract** — an approved investor signs the full package: attestation requirement, no-hedging covenant, mandatory ecosystem commitments (C1). *No contract → no ratio.*
-2. **Buy** — ~$500k per ticket executed by the Qubic market maker through the investor's own account, inside a defined window. *No attestation → no ratio: burning an old bag earns nothing.*
+2. **Buy** — the ticket is executed by the Qubic market maker through the investor's own account, inside a defined window. *No attestation → no ratio: burning an old bag earns nothing.*
 3. **Burn** — the bought tokens are destroyed at the burn address **immediately after purchase**. On-chain, irreversible, verifiable by anyone. Combined with step 2, this is the model's double effect: market buying lifts demand and the burn cuts float in the same motion, before a single token is issued back.
-4. **Release** — 1.25× the burned amount is released from the multisig in 13 equal batches over 12 months (schedule below).
+4. **Release** — the tier multiple is released from the multisig in equal batches, one every 4 epochs after a 4-epoch cliff (schedule below).
+   
 
 ---
+
+### Ticket tiers
+
+Repayment is tiered by ticket size. A larger commitment earns a better ratio and accepts a longer release; a smaller commitment earns less but is repaid faster. Every tier passes the **identical** contract, attestation, covenant and per-batch compliance gates — the guardrails do not scale down with the cheque.
+
+| Tier | Ticket | Multiple | Investor gain | Batches | Release period | 
+|---|---|---|---|---|---|---|---|
+| **A** | $100,000 | **1.10×** | +10% | 7 | ~6 months | 
+| **B** | $250,000 | **1.15×** | +15% | 10 | ~9 months |
+| **C** | $500,000 | **1.25×** | +25% | 13 | 12 months | 
+
+- **Caps:** $1,000,000 total · max 6 tickets · max 2 tickets (≤ $1M) per investor, and a **second ticket only after the first completes buy → burn → attestation on schedule**. One qualified legal entity per ticket — no pooled or nominee structures. If oversubscribed, larger tickets allocate first.
+- The rate attaches to the **ticket**, so splitting a commitment into smaller tickets only earns a lower rate — fragmentation penalises itself.
+- **Partnership bonus — Tier C only, +5%** (1.25× → 1.30×) for one **verified** major contribution (tier-1 listing, live partnership, or delivered campaign), one deliverable per ticket. The bonus is **added to the final batch** — releases stay 13, the timeline never extends — and is **funded from within the same 24.5% tranche**: it never increases the draw. Unverified by the final batch → the reserve is burned.
+- Per batch, every tier stays a sliver of supply: **0.03%–0.09% of circulating** (Tier C final batch with bonus: ~0.13%).
 
 ## What this vote changes — and what it does not
 
@@ -58,6 +76,7 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 - The draw is **32% of the burn donation at most**. The window runs **15 epochs (14 nominal + 1 buffer)** — sized to the programme's **maximum possible obligation including bonuses (3.44T)**, not its base case, with actual-earnings variance absorbed by the buffer. The window is closed by the paired restore proposal, not by code — **no core code changes are required anywhere in this model**.
 - Supply cap, miner rewards, QEarn and CCF are not part of this vote.
+![Release schedule](investors-pilot-release.png)
 
 ### Funding coverage — the window covers every scenario
 
@@ -83,11 +102,14 @@ Per ticket: burn ~1.272T (~$500k at ref price); base repayment 1.591T in 13 batc
 
 - **Nothing is unlocked up front.** The full 1.25× accrues to the programme multisig.
 - **Cliff:** first release 4 epochs after burn + attestation.
-- **Then 13 equal batches**, one every 4 epochs — **~122.4B tokens each, ≈0.09% of circulating supply per batch**. The schedule is fixed in tokens, not dollars: at the reference price a batch is worth ~$48k; if the price rises, the dollar value rises with it — but each batch stays the same sliver of supply, and rising prices historically come with deeper traded volume. Either way, there is never a block to sell.
+- **Then 13 equal batches**, one every 4 epochs — **~122.4B tokens each, ≈0.09% of circulating supply per batch**. The schedule is fixed in tokens, not dollars: at the reference price a b if the price rises, the dollar value rises with it — but each batch stays the same sliver of supply, and rising prices historically come with deeper traded volume. Either way, there is never a block to sell.
 - **Custody and control:** the programme multisig is operated under a **3-of-5 signatory structure, finalised and published in full before launch**, with the option of one investor-representative signatory for transparency. All addresses are published in this document before launch; every release is verifiable on-chain against the schedule.
 - **Every batch is conditional:** the no-hedging covenant and the C1 ecosystem commitments are checked before each release — thirteen times, not once at signing.
 - **Breach forfeits every unreleased batch.** Forfeited tokens are never minted, so a breach leaves the supply tighter than if the investor had complied.
-
+- **Multisig Signatories**
+  1-Kimz
+  2-Joetom
+  3-Spikeinjapan - AIPG LEGEND
 ---
 
 ## Impact on the 200T supply cap
@@ -148,4 +170,4 @@ This proposal redirects part of the burn donation for a fixed window closed by a
 
 ---
 
-*Submitted by BD lead-Kimz — BD lead,  Full detail: [here](Qubic_Inv_Computor_Deck_Final.pdf)
+*Submitted by Kimz — BD lead
