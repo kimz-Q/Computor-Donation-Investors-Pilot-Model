@@ -54,11 +54,11 @@ Qubic sells nothing, holds no investor money, and pays only for **verified buyin
 
 Repayment is tiered by ticket size. A larger commitment earns a better ratio and accepts a longer release; a smaller commitment earns less but is repaid faster. Every tier passes the **identical** contract, attestation, covenant and per-batch compliance gates — the guardrails do not scale down with the cheque.
 
-| Tier | Ticket | Multiple | Investor gain | Batches | Release period | 
-|---|---|---|---|---|---|---|---|
-| **A** | $100,000 | **1.10×** | +10% | 7 | ~6 months | 
+| Tier | Ticket | Multiple | Gain | Batches | Release period |
+|---|---|---|---|---|---|
+| **A** | $100,000 | **1.10×** | +10% | 7 | ~6 months |
 | **B** | $250,000 | **1.15×** | +15% | 10 | ~9 months |
-| **C** | $500,000 | **1.25×** | +25% | 13 | 12 months | 
+| **C** | $500,000 | **1.25×** | +25% | 13 | 12 months |
 
 - **Caps:** $1,000,000 total · max 6 tickets · max 2 tickets (≤ $1M) per investor, and a **second ticket only after the first completes buy → burn → attestation on schedule**. One qualified legal entity per ticket — no pooled or nominee structures. If oversubscribed, larger tickets allocate first.
 - The rate attaches to the **ticket**, so splitting a commitment into smaller tickets only earns a lower rate — fragmentation penalises itself.
@@ -97,8 +97,6 @@ Per ticket: burn ~1.272T (~$500k at ref price); base repayment 1.591T in 13 batc
 ---
 
 ## The release mechanism
-
-![Release schedule](investors-pilot-release.png)
 
 - **Nothing is unlocked up front.** The full 1.25× accrues to the programme multisig.
 - **Cliff:** first release 4 epochs after burn + attestation.
