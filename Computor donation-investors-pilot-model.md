@@ -5,7 +5,7 @@
 Allow a **temporary adjustment of the Computor Donation to the SupplyWatcher (burn)**: for **15 epochs (14 nominal + 1 buffer)**, redirect **24.5%** from the burn tranche into a dedicated programme multisig (3-of-5, published before launch) that funds the **Investors Pilot Model** — a programme in which outside investors **buy QUBIC on the open market, burn what they bought, and receive a tiered multiple of the burned amount released in small batches over 6–12 months**.
 Because donations are a **percentage of what Computors actually earn**, all token figures in this document are **ceilings** — actual accrual is normally lower. The window is closed by a **paired restore proposal (Proposal B), published simultaneously with this one**, which returns the burn donation to 77.5%. Nothing else in the emission split changes.
 
-*Full mechanics, charts and scenario tables: [briefing deck (PDF)](Qubic_Inv_Computor_Deck_v7_public.pdf).*
+*Full mechanics, charts and scenario tables: [briefing deck (PDF)](Qubic_Computor_Deck_v7.pdf).*
 
 
 ---
