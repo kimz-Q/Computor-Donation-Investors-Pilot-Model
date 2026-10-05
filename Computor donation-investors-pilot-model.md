@@ -14,6 +14,7 @@ Donations are a **percentage of what Computors actually earn**, so all token fig
 > **Option 0:** No, I don't want
 
 > **Option 1:** Yes, redirect 24.5% of Computor earnings from the burn donation to the programme multisig for a 15-epoch window
+
 > **Wallet address:** QGYUCOVCPEDXEEAEHETDEKXXNYADKBZFDBLXAKPUOAGHRRYOIPCCCGJFTLEA
 
 ---
